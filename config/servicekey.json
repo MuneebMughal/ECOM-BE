@@ -1,0 +1,13 @@
+{
+    "type": "service_account",
+    "project_id": "muneeb-mart",
+    "private_key_id": "b5392f59544978026b9adbbbfa4b3c65c14d6036",
+    "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvgIBADANBgkqhkiG9w0BAQEFAASCBKgwggSkAgEAAoIBAQCt9Kig/Cqgqkxg\nssEHI/d7Ufw4zftxix0MNrKo5hiF7Yyi0Cwcgy4JGSziZnfLt9j91opIxo9nLzdL\nROjTeJecrwUAeBhIxc2LKpsUmq6v9sl/8rmxsKGP/1uNcfGo3UMfNegSq0GYnWcD\nUs0BErZIpPQjGNwGGVic9Qfh4q22gySVyyVEGuRPA/kzfqQUnCSjUSy6X7lu7U+W\n4LgSfoZ2Urp1+gVnFkF/WPFf/75cXWM6zTa+/aMLLIv1BUh0XwRX3QpRUmq1nS4P\nwodIUTnS34vc9vSUQrT+GCG3UlOoNeXewKHJeMuFGcMCJYEvxxWlQkjc1YJ0dRcv\nkbs65JxlAgMBAAECggEAGR36KjJ22jd0q0KsLeKC1Z7PHwmY3HpkcZLFRa9hi5by\n50BNGjnTsBMfQLpgYj0TuwUa9uqaoqC16GuU/ZHMPF6mB30PrpRG+yjl9vnlrrkg\nu5V5u/8fuNm7Z6cz6Di4fB1tuqJZKJbTnK58NMM1qDQPHzEz9bp7qcAUiQhQokk8\nz5qfRLKlOBOV4WRa7zHlnme9csfQAPiTAdiV2ylyK2YVQ5Aziw/DdrIcImy0wwFh\nDx1f/N6nthg58y8IN78hUcs0zdNLr6ZExL1+mPea75rGBJRxRVhajzucCMJdJke/\n3vxLJTE4/32zYabbjPINXIL51Dxy99Ce+DXdzY63kQKBgQDXKn9QxPwMb6joQDmS\nxGmZ6A2e/rkGzXLnUpMcO6ikkEWtOQBxDWWcYh+b0LGC2OZdqQIB3cgXBMMBceoi\n6rfSYGpb98UReu7FKkvEz7dgoA/ooj0ypA6Lpf9MxS9cw+BCx7wJeQEJv6Ai+kNi\nSjWqRV/gNE346FXJxjBFukDbNQKBgQDO+AX2EyOUcUmM3oNv8eMM543fmJ+YZswP\n27m+H2zb1grC5C+7GOi0rzx2puhDU4W8sceNM936wvaD7w55ibKjEoVhDO1lDZWc\nWFGnSkloWlZXFa1PbUL/Aokw6ucM3nQAHs/IegMOheMqACcuwxzZ8m/07nR/6nt3\nPac6vpWycQKBgQDW/sranQoxLv16nHoq0gGm3L2HioS9bFqNE/CU/HPFg7droBJ1\n5GoMuetVmVFWKn79RVwRG1fM0GA+OGI444osN1TvcoNCtTCSaHHvRZK5hRaAYGSA\nDnfOSF7yifGKYtraP5P/bx5/bC+J48GjG/3Flq53bCwhM55NELC5a6NUpQKBgCVk\nKa+LRaJL1T3d9WEEEkEClF8Q88RUzgkPaT8v7jrJMKiFERp8JY5/Gi1VeiCvtjmg\n5Kxd8nybPG4ZgkPy3JMZhX9DFqBrE9xrGFVg1mJD79VL1UPEOZZYnvB3f8aTaeGb\nr25InMTC64dq/6kzFsNJSXC2o9V4R1YDjXLPe7wBAoGBAMT94I6lHQQfkwzry+n7\nFvRRt5bgowGW/Q9PAGBNwiNmw+aJ0f2o6DT297NKg1fx/MyhFWpOu7+OFBBM3rNF\nv+dm8eIuEvl334Vlspgypdam8fQNG8RRChr+Po+zjlzD56bagV7k9q0MGE/snYMK\nvQGZMZpFJk6y3TGIcKNVzr8E\n-----END PRIVATE KEY-----\n",
+    "client_email": "firebase-adminsdk-whj2x@muneeb-mart.iam.gserviceaccount.com",
+    "client_id": "101819562486916668117",
+    "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+    "token_uri": "https://oauth2.googleapis.com/token",
+    "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+    "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/firebase-adminsdk-whj2x%40muneeb-mart.iam.gserviceaccount.com"
+  }
+  
