@@ -1,0 +1,10 @@
+const express = require("express");
+const { addSubCategory,getAllSubCategories,getSubCategory,updateSubCategory,deleteSubCategory } = require("../controllers/subcategory");
+const { authCheck, adminCheck } = require("../middlewares/auth");
+const router = express.Router();
+router.post("/add-subcategory", authCheck, adminCheck, addSubCategory);
+router.get("/subcategory-list", getAllSubCategories);
+router.get("/subcategory/:slug", getSubCategory);
+router.post("/subcategory/:slug",authCheck,adminCheck,updateSubCategory);
+router.delete('/subcategory/:slug',authCheck,adminCheck,deleteSubCategory);
+module.exports = router;

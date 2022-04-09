@@ -1,13 +1,13 @@
-const Category = require("../models/category");
+const Subcategory = require("../models/subcategory");
 const slugify = require("slugify");
-exports.addCategory = async (req, res) => {
-  const { name } = req.body;
-  const category = new Category({ name, slug: slugify(name) });
-  await category
+exports.addSubCategory = async (req, res) => {
+  const { name, parent } = req.body;
+  const subcategory = new Subcategory({ name, slug: slugify(name), parent });
+  await subcategory
     .save()
-    .then((cat) => {
-      if (cat) {
-        return res.status(200).json({ cat });
+    .then((subcat) => {
+      if (subcat) {
+        return res.status(200).json({ subcat });
       }
     })
     .catch((err) => {
@@ -18,14 +18,14 @@ exports.addCategory = async (req, res) => {
       }
     });
 };
-exports.getAllCategories = async (req, res) => {
+exports.getAllSubCategories = async (req, res) => {
   try {
-    const categories = await Category.find({}).sort({ date: -1 });
-    if (categories.length > 0) {
-      res.status(200).json({ categories });
+    const subcategories = await Subcategory.find({}).sort({ date: -1 });
+    if (subcategories.length > 0) {
+      res.status(200).json({ subcategories });
     } else {
       res.status(404).json({
-        message: "No Category Found.",
+        message: "No Sub-Category Found.",
       });
     }
   } catch (err) {
@@ -34,21 +34,21 @@ exports.getAllCategories = async (req, res) => {
     });
   }
 };
-exports.getCategory = async (req, res) => {
+exports.getSubCategory = async (req, res) => {
   try {
     const { slug } = req.params;
-    await Category.findOne({ slug }).exec((err, category) => {
+    await Subcategory.findOne({ slug }).exec((err, subcategory) => {
       if (err) {
         res.status(400).json({
           err,
         });
-      } else if (category) {
+      } else if (subcategory) {
         res.status(200).json({
-          category,
+          subcategory,
         });
       } else {
         res.status(404).json({
-          message: "No Category Found.",
+          message: "No Sub-Category Found.",
         });
       }
     });
@@ -58,22 +58,22 @@ exports.getCategory = async (req, res) => {
     });
   }
 };
-exports.updateCategory = async (req, res) => {
+exports.updateSubCategory = async (req, res) => {
   try {
-    const { name } = req.body;
+    const { name, parent } = req.body;
     const { slug } = req.params;
-    await Category.findOneAndUpdate(
+    await Subcategory.findOneAndUpdate(
       { slug },
-      { name, slug: slugify(name) },
+      { name, slug: slugify(name), parent },
       { new: true }
-    ).exec((err, category) => {
+    ).exec((err, subcategory) => {
       if (err) {
         res.status(400).json({
           err,
         });
-      } else if (category) {
+      } else if (subcategory) {
         res.status(200).json({
-          category,
+          subcategory,
         });
       } else {
         res.status(404).json({
@@ -87,21 +87,21 @@ exports.updateCategory = async (req, res) => {
     });
   }
 };
-exports.deleteCategory = async (req, res) => {
+exports.deleteSubCategory = async (req, res) => {
   try {
     const { slug } = req.params;
-    await Category.findOneAndDelete({ slug }).exec((err, category) => {
+    await Subcategory.findOneAndDelete({ slug }).exec((err, subcategory) => {
       if (err) {
         res.status(400).json({
           err,
         });
-      } else if (category) {
+      } else if (subcategory) {
         res.status(200).json({
-          category,
+          subcategory,
         });
       } else {
         res.status(404).json({
-          message: "No Such Category Found",
+          message: "No Such Sub-Category Found",
         });
       }
     });
