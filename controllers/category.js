@@ -1,4 +1,5 @@
 const Category = require("../models/category");
+const Subcategory = require("../models/subcategory");
 const slugify = require("slugify");
 exports.addCategory = async (req, res) => {
   const { name } = req.body;
@@ -20,7 +21,7 @@ exports.addCategory = async (req, res) => {
 };
 exports.getAllCategories = async (req, res) => {
   try {
-    const categories = await Category.find({}).sort({ date: -1 });
+    const categories = await Category.find({}).sort({ updatedAt: -1 });
     if (categories.length > 0) {
       res.status(200).json({ categories });
     } else {
@@ -107,5 +108,25 @@ exports.deleteCategory = async (req, res) => {
     });
   } catch (err) {
     res.status(400).json({ err });
+  }
+};
+exports.getSub = (req, res) => {
+  try {
+    const { sub } = req.params;
+    Subcategory.find({ parent: sub }).exec((err, subs) => {
+      if (err) {
+        res.status(400).json({
+          err,
+        });
+      } else {
+        res.status(200).json({
+          subs,
+        });
+      }
+    });
+  } catch (err) {
+    res.status(400).json({
+      err,
+    });
   }
 };

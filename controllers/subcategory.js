@@ -20,7 +20,7 @@ exports.addSubCategory = async (req, res) => {
 };
 exports.getAllSubCategories = async (req, res) => {
   try {
-    const subcategories = await Subcategory.find({}).populate('parent','name').sort({ date: -1 });
+    const subcategories = await Subcategory.find({}).populate('parent','name').sort({updatedAt:-1});
     if (subcategories.length > 0) {
       res.status(200).json({ subcategories });
     } else {

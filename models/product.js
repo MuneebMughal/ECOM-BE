@@ -20,7 +20,7 @@ const productSchema = new mongoose.Schema(
       type: String,
       required: true,
       minlength: 10,
-      maxlength: 2000
+      maxlength: 2000,
     },
     price: {
       type: Number,
@@ -33,8 +33,11 @@ const productSchema = new mongoose.Schema(
     },
     subcategory: [
       {
-        type: ObjectId,
-        ref: "Subcategory",
+        value: {
+          type: ObjectId,
+          ref: "Subcategory",
+        },
+        label: String,
       },
     ],
     quantity: Number,
