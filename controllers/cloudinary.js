@@ -29,4 +29,23 @@ exports.upload = async (req, res) => {
     });
   }
 };
-exports.remove = (req, res) => {};
+exports.remove = (req, res) => {
+  try {
+    const { id } = req.params;
+    cloudinary.uploader.destroy(id, (err, result) => {
+      if (err) {
+        res.status(400).json({
+          message: "Error",
+        });
+      } else {
+        res.status(200).json({
+          message: "Done",
+        });
+      }
+    });
+  } catch (err) {
+    res.status(400).json({
+      message: "Error",
+    });
+  }
+};
