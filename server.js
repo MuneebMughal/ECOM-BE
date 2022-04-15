@@ -30,6 +30,7 @@ mongoose
 
 //middlewares
 //app.use(morgan('dev'));
+app.use(express.json({limit: '50mb'}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cors());

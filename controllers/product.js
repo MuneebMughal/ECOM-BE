@@ -1,7 +1,6 @@
 const Product = require("../models/product");
 const slugify = require("slugify");
 exports.addProduct = async (req, res) => {
-    console.log(req.body);
   try {
     const  prod  = req.body;
     prod.slug = slugify(prod.title);
