@@ -8,7 +8,6 @@ const productSchema = new mongoose.Schema(
       trim: true,
       minlength: 2,
       maxlength: 32,
-      unique: true,
     },
     slug: {
       type: String,
