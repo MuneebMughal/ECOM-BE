@@ -1,6 +1,6 @@
 const express = require("express");
 const { addCategory,getAllCategories,getCategory,updateCategory,deleteCategory,getSub } = require("../controllers/category");
-const { authCheck, adminCheck } = require("../middlewares/auth");
+// const { authCheck, adminCheck } = require("../middlewares/auth");
 const router = express.Router();
 router.post("/add-category", authCheck, adminCheck, addCategory);
 router.get("/category-list", getAllCategories);
