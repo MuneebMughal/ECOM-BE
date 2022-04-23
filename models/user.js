@@ -2,7 +2,7 @@ const mongoose = require("mongoose");
 const { ObjectId } = mongoose.Schema;
 const userSchema = new mongoose.Schema(
   {
-    name: { type: String, trim: true },
+    name: { type: String, trim: true, required: true },
     email: {
       type: String,
       required: true,
@@ -20,6 +20,10 @@ const userSchema = new mongoose.Schema(
       default: [],
     },
     picture: String,
+    password: {
+      type: String,
+      required: true,
+    },
     // wishlist:[{type:ObjectId,ref:'Product'}]
   },
   { timestamps: true }

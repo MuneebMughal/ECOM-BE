@@ -1,4 +1,7 @@
 const User = require("../models/user");
+const bcrypt = require("bcrypt");
+const jwt = require("jsonwebtoken");
+require("dotenv").config();
 exports.createOrUpdate = async (req, res) => {
   try {
     const { name, picture, email } = req.user;
@@ -46,5 +49,58 @@ exports.getUser = async (req, res) => {
     return res.status(400).json({
       err,
     });
+  }
+};
+exports.createUser = async (req, res) => {
+  try {
+    const { name, email, password } = req.body;
+    const existedUser = User.findOne({ email });
+    if (existedUser) {
+      res.status(400).json({
+        Error: "User already exist",
+      });
+    } else {
+      const salt = await bcrypt.genSalt(10);
+      const hashPassword = await bcrypt.hash(password, salt);
+      const user = new User({ name, email, password: hashPassword });
+      user.save().then((user) => {
+        return res.status(200).json({
+          user,
+        });
+      });
+    }
+  } catch (err) {
+    res.status(400).json({
+      err,
+    });
+  }
+};
+exports.login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const existedUser = await User.findOne({ email });
+    if (existedUser) {
+      bcrypt.compare(password, existedUser.password).then((result) => {
+        if (result) {
+          const { name, email, role } = existedUser;
+          const user = { name, email, role };
+          const accessToken = jwt.sign(user, process.env.JWT_ACCESS_SECRET);
+          res.status(200).json({
+            accessToken,
+            user: existedUser,
+          });
+        } else {
+          res.status(400).json({
+            Error: "Invalid Username or Password",
+          });
+        }
+      });
+    } else {
+      res.status(400).json({
+        Error: "Invalid Username or Password",
+      });
+    }
+  } catch (err) {
+    res.status(400).json({ err });
   }
 };
